@@ -1,0 +1,22 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: cluster-resources-view
+rules:
+- apiGroups: [""]
+  resources: ["pods", "nodes"]
+  verbs: ["get", "list"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: cluster-resources-view-binding
+  namespace: default
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: monitoring
+roleRef:
+  kind: ClusterRole
+  name: cluster-resources-view
