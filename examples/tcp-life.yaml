@@ -1,0 +1,145 @@
+metrics:
+  counters:
+    - name: tcp_ipv4_bytes_sent
+      help: Total Bytes sent of IPv4 TCP endpoint
+      labels:
+        - name: local_ip
+          size: 4
+          decoders:
+            - name: inet_ip
+        - name: local_namespace
+          size: 4
+          decoders:
+            - name: pod_namespace
+        - name: local_az
+          size: 4
+          decoders:
+            - name: pod_az
+        - name: peer_ip
+          size: 4
+          decoders:
+            - name: inet_ip
+        - name: peer_namespace
+          size: 4
+          decoders:
+            - name: pod_namespace
+        - name: peer_az
+          size: 4
+          decoders:
+            - name: pod_az
+    - name: tcp_ipv4_bytes_recv
+      help: Total Bytes received of IPv4 TCP endpoint
+      labels:
+        - name: local_ip
+          size: 4
+          decoders:
+            - name: inet_ip
+        - name: local_namespace
+          size: 4
+          decoders:
+            - name: pod_namespace
+        - name: local_az
+          size: 4
+          decoders:
+            - name: pod_az
+        - name: peer_ip
+          size: 4
+          decoders:
+            - name: inet_ip
+        - name: peer_namespace
+          size: 4
+          decoders:
+            - name: pod_namespace
+        - name: peer_az
+          size: 4
+          decoders:
+            - name: pod_az
+    - name: tcp_ipv4_retrans
+      help: Total retransmitted segments of IPv4 TCP endpoint
+      labels:
+        - name: local_ip
+          size: 4
+          decoders:
+            - name: inet_ip
+        - name: local_namespace
+          size: 4
+          decoders:
+            - name: pod_namespace
+        - name: local_az
+          size: 4
+          decoders:
+            - name: pod_az
+        - name: peer_ip
+          size: 4
+          decoders:
+            - name: inet_ip
+        - name: peer_namespace
+          size: 4
+          decoders:
+            - name: pod_namespace
+        - name: peer_az
+          size: 4
+          decoders:
+            - name: pod_az
+    - name: tcp_ipv4_lost
+      help: Total lost segments of IPv4 TCP endpoint
+      labels:
+        - name: local_ip
+          size: 4
+          decoders:
+            - name: inet_ip
+        - name: local_namespace
+          size: 4
+          decoders:
+            - name: pod_namespace
+        - name: local_az
+          size: 4
+          decoders:
+            - name: pod_az
+        - name: peer_ip
+          size: 4
+          decoders:
+            - name: inet_ip
+        - name: peer_namespace
+          size: 4
+          decoders:
+            - name: pod_namespace
+        - name: peer_az
+          size: 4
+          decoders:
+            - name: pod_az
+  histograms:
+    - name: tcp_ipv4_srtt_usec
+      help: Smoothed round trip time of IPv4 TCP endpoint
+      bucket_type: exp2
+      bucket_min: 0
+      bucket_max: 11
+      labels:
+        - name: local_ip
+          size: 4
+          decoders:
+            - name: inet_ip
+        - name: local_namespace
+          size: 4
+          decoders:
+            - name: pod_namespace
+        - name: local_az
+          size: 4
+          decoders:
+            - name: pod_az
+        - name: peer_ip
+          size: 4
+          decoders:
+            - name: inet_ip
+        - name: peer_namespace
+          size: 4
+          decoders:
+            - name: pod_namespace
+        - name: peer_az
+          size: 4
+          decoders:
+            - name: pod_az
+        - name: bucket
+          size: 8
+          decoders:
+            - name: uint
