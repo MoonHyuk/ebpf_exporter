@@ -76,8 +76,8 @@ int BPF_PROG(inet_sock_set_state, struct sock *sk, int oldstate, int newstate)
 
     switch (sk->__sk_common.skc_family) {
     case AF_INET:
-        bucket_key.saddr_az = bucket_key.saddr_ns = bucket_key.saddr = key.saddr_az = key.saddr_ns = key.saddr = sk->__sk_common.skc_rcv_saddr;
-        bucket_key.daddr_az = bucket_key.daddr_ns = bucket_key.daddr = key.daddr_az = key.daddr_ns = key.daddr = sk->__sk_common.skc_daddr;
+        bucket_key.saddr_az = bucket_key.saddr_ns = bucket_key.saddr = key.saddr_az = key.saddr_ns = key.saddr = BPF_CORE_READ(sk, __sk_common.skc_rcv_saddr);
+        bucket_key.daddr_az = bucket_key.daddr_ns = bucket_key.daddr = key.daddr_az = key.daddr_ns = key.daddr = BPF_CORE_READ(sk, __sk_common.skc_daddr);
         increment_map(&tcp_ipv4_bytes_sent, &key, BPF_CORE_READ(tp, bytes_sent));
         increment_map(&tcp_ipv4_bytes_recv, &key, BPF_CORE_READ(tp, bytes_received));
         increment_map(&tcp_ipv4_retrans, &key, BPF_CORE_READ(tp, total_retrans));
