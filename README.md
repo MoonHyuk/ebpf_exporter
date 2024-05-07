@@ -4,11 +4,6 @@
 https://lunalight.im/2024/05/03/monitoring-eks-network-with-ebpf.html
 
 ## Dashboard
-Sample Dashboard: http://grafana.lunalight.im/d/cdkisx46nhh4wb/8-pod-tcp-connection-info?orgId=1
-
-username: guest  
-password: guest
-
 ![Dashboard Image](./img.png)
 
 ## How to Deploy
